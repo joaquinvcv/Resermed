@@ -1,0 +1,43 @@
+
+<div id="newUser">
+    <button class="btn btn-primary buttonUser" (click)="nuevoDoctor()">
+        <i class="fa-solid fa-user-plus" style="color: #ffffff;" ></i>
+        Nuevo medico
+    </button>
+</div>
+<table id="tableC" class="table table-striped" *ngIf="medicoS.medicos && medicoS.medicos.length">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Rut</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medico of medicoS.medicos | paginate: { itemsPerPage: 5, currentPage: p,  totalItems: total}; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{medico.nombre}}</td>
+        <td>{{medico.apellido}}</td>
+        <td>{{medico.rut}}</td>
+        <td>{{medico.telefono}}</td>
+        <td>{{medico.email}}</td>
+        <td>{{medico.especialidad}}</td>
+        <td>
+            <button class="btn btn-danger" (click)="quitarMedico(medico.id,medico)">Desvincular</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p =$event"></pagination-controls>
+  <div *ngIf="modalShow.modal == true then abrirModal"></div>
+  <ng-template #abrirModal>
+    <app-nuevo-doctor (onNewMedico)="onNewMedico($event)"></app-nuevo-doctor>
+  </ng-template>
+  
+
+  

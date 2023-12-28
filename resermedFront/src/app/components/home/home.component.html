@@ -1,0 +1,77 @@
+<div class="wrapper">
+
+
+    <div class="search-content">
+        <h1>Encuentra una cita con tu especialista</h1>
+        <div [routerLink]="['/resultados']" action="" class="searchBar">
+            <input #box type="search" id="inputSearch" class="form-control" placeholder="Buscar profesional" />
+            <div class="searchButton">
+                <button type="button" class="" id="btnSearch" routerLinkActive="router-link-active">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="espec">
+        <div class="list" [class.list-off]="toggle">
+            <ul>
+                <li>Médico General</li>
+                <li>Psicólogo</li>
+                <li>Ginecólogo</li>
+                <li>Pediatra</li>
+                <li>Psiquiátra</li>
+                <li>Dermatólogo</li>
+                <li>Traumatólogo</li>
+                <li>Neurólogo</li>
+                <li>Oftalmólogo</li>
+                <li>Urólogo</li>
+                <li>Nutricionista</li>
+                <li>Kinesiólogo</li>
+                <strong>
+                    <li><a (click)="toggleList()">Ver Mas</a></li>
+                </strong>
+            </ul>
+        </div>
+
+        <div class="fullList" [class.fullList-show]="toggle">
+            <div class="tittle">
+                <h3>Especialidades mas populares</h3>
+                <h3 class="todo"><a (click)="toggleList()">Ver menos</a></h3>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div>
+                        <h3>Médico General</h3>
+                        <p>Se especializa en la atención médica integral y no especializada para pacientes de todas las
+                            edades. Su papel principal es diagnosticar, tratar y prevenir una amplia gama de
+                            enfermedades comunes.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>Psicólogo</h3>
+                        <p>Se especializa en el estudio y el tratamiento del comportamiento humano, las emociones y los
+                            procesos mentales. Su objetivo principal es comprender y mejorar la salud mental y el
+                            bienestar psicológico de las personas.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>Oftalmólogo</h3>
+                        <p>Especializado en el diagnóstico, tratamiento y prevención de enfermedades y trastornos
+                            relacionados con los ojos y el sistema visual. Su principal objetivo es preservar y mejorar
+                            la salud ocular y la calidad de la visión de los pacientes. </p>
+                    </div>
+                </div>
+                <div class="card" [class.cardoff]="toggle">
+                    <div>
+                        <h3>Pediatra</h3>
+                        <p> Especializado en la atención médica de niños, desde el nacimiento hasta la adolescencia
+                            temprana. Su principal enfoque es el cuidado de la salud física, emocional y social de los
+                            niños, así como su crecimiento y desarrollo adecuado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

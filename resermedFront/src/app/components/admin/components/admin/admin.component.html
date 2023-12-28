@@ -1,0 +1,31 @@
+<!--sidebar-->
+<div class="flex-content">
+    <ul id="barAside" class="navbar-nav sidebar">
+
+
+        <li class="nav-item" [ngClass]="{'activeNav' : menuSelected == '/admin/medicos'}">
+            <a [routerLink]="['medicos']" class="nav-link">
+                <i class="fa-solid fa-user-doctor" style="color: #f5f5f5;"></i>
+                <span style="color: #f5f5f5;">Medicos</span>
+            </a>
+        </li>
+        <li class="nav-item" [ngClass]="{'activeNav' : menuSelected == '/admin/pacientes'}">
+            <a [routerLink]="['pacientes']" class="nav-link">
+                <i class="fa-sharp fa-solid fa-users" style="color: #ffffff;"></i>
+                <span style="color: #f5f5f5;">Pacientes</span>
+            </a>
+        </li>
+    </ul>
+
+    <div id="tableContent">
+        <router-outlet></router-outlet>
+    </div>
+    
+    
+
+</div>
+
+
+
+
+

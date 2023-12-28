@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Fecha</th>
+        <th>Hora de inicio</th>
+        <th>Hora de termino</th>
+        <th>Pagado</th>
+        <th>Asistencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datos |citaTomada; index as i" class="elementTable" (click)="capturarValor(item,i)">
+          <td scope="row">{{i+1}}</td>
+          <td>{{item.fecha | date: 'dd-MM-yyyy'}}</td>
+          <td>{{item.hora_inicio }}</td>
+          <td>{{item.hora_termino }}</td>
+          <td>{{item.pagada == true ? 'Pagado':'Pendiente'}}</td>
+          <td>{{item.asiste == true ? 'Confirmado':'No presenta'}}</td>
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,49 @@
+$font: 'Nunito', sans-serif;
+
+section {
+    margin: 2% 0 2% 0;
+    font-family: $font;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin: 2% 0 2% 0;
+}
+
+.botones {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+        padding: 10px 0 10px 0;
+    }
+}
+
+.file {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

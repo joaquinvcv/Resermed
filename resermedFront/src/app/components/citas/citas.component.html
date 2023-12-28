@@ -1,0 +1,101 @@
+<div class="container">
+    <h1>Mis Citas</h1>
+    <h2><strong>Próxima Cita</strong></h2>
+    <div class="content-top" *ngIf="proxCita">
+        <div class="card" *ngIf="userType == 'usuario'; else proxMedico">
+            <div class="imagen" *ngIf="proxCita.Medico.img_url==''; else imgRealMed">
+                <img src="/assets/img/no-image.png">
+            </div>
+
+            <ng-template #imgRealMed>
+                <div class="imagen">
+                    <img src="{{proxCita.Medico.img_url}}">
+                </div>
+            </ng-template>
+            <div class="datos">
+
+                <h3>Profesional: {{proxCita.Medico.nombre}} {{proxCita.Medico.apellido}}</h3>
+                <p>Especialidad: {{proxCita.Medico.especialidad}}</p>
+                <p>Fecha: {{proxCita.fecha | date: 'dd-MM-yyyy'}}</p>
+                <p>Hora de inicio: {{proxCita.hora_inicio | timeFormat}}</p>
+                <p>Hora de término: {{proxCita.hora_termino | timeFormat}}</p>
+                <button class="btn btn-primary" (click)="abrirModal(proxCita)">Ver Detalles</button>
+            </div>
+        </div>
+
+        <ng-template #proxMedico>
+            <div class="card">
+                <div class="imagen" *ngIf="proxCita.Usuario.img_url==''; else imgRealUser">
+                    <img src="/assets/img/no-image.png">
+                </div>
+
+                <ng-template #imgRealUser>
+                    <div class="imagen">
+                        <img src="{{proxCita.Usuario.img_url}}">
+                    </div>
+                </ng-template>
+                <div class="datos">
+
+                    <h3>Paciente: {{proxCita.Usuario.nombre}} {{proxCita.Usuario.apellido}}</h3>
+                    <p>Fecha: {{proxCita.fecha | date: 'dd-MM-yyyy'}}</p>
+                    <p>Hora de inicio: {{proxCita.hora_inicio | timeFormat}}</p>
+                    <p>Hora de término: {{proxCita.hora_termino | timeFormat}}</p>
+                    <button class="btn btn-primary" (click)="abrirModal(proxCita)">Ver Detalles</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="no-content" *ngIf="!proxCita">
+        <div class="card-no-content">
+            <h4 class="text-center">No hay citas registradas para este usuario</h4>
+        </div>
+
+    </div>
+
+
+    <h2 style="text-align: start; border-bottom: 0.5px solid;">Citas de la Semana</h2>
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+
+            <tbody *ngIf="userType == 'usuario'; else citasMed">
+
+                <tr *ngFor="let cita of citasProximas | citaOcupada">
+                    <td>{{cita.Medico.especialidad}}</td>
+                    <td>{{cita.fecha | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{cita.hora_inicio | timeFormat}} - {{cita.hora_termino | timeFormat}}</td>
+                    <td class="btnesp"><button class="btn btn-primary" (click)="abrirModal(cita)">Ver Detalles</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+            <ng-template #citasMed>
+                <tbody>
+
+                    <tr *ngFor="let cita of citasProximas | citaOcupada">
+                        <td>{{cita.Usuario.nombre}} {{cita.Usuario.apellido}}</td>
+                        <td>{{cita.fecha | date: 'dd-MM-yyyy'}}</td>
+                        <td>{{cita.hora_inicio | timeFormat}} - {{cita.hora_termino | timeFormat}}</td>
+                        <td class="btnesp"><button class="btn btn-primary" (click)="abrirModal(cita)">Ver
+                                Detalles</button></td>
+                    </tr>
+
+                </tbody>
+            </ng-template>
+
+
+
+        </table>
+    </div>
+
+</div>
+
+
+
+<app-modal-detalles [cita]="cita" [userType]="userType"></app-modal-detalles>

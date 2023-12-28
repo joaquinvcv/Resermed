@@ -1,0 +1,21 @@
+.content-wrapper{
+    display: flex;
+    flex-flow: column;
+    min-height: 100%;
+    // height: calc( 100vh - 60px);
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+@media screen and (max-width: 800px) {
+    .main-content {
+        padding: 0;
+    }
+}
+
+.ocultar{
+    display: none;
+}

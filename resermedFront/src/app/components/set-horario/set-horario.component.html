@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="content d-flex">
+        <h2>Definir horario</h2>
+
+        <div class="jornada d-flex">
+            <label>Inicio de jornada:</label>
+            <input #jornadaInicio type="time" id="jornada-inicio">
+            <label for="" id="jornada-termino-label">Término de jornada:</label>
+            <input #jornadaTermino type="time">
+        </div>
+        <div class="costo d-flex">
+            <label for="" id="costo-cita">Costo inicial Cita:</label>
+            <input #costoCita type="number" min="0">
+        </div>
+        <div class="set-horario">
+            <h3 class="text-center">Selecciona el método para agregar citas</h3>
+            <div class="metodos-cita d-flex">
+                <div class="individual col-sm-6 d-flex">
+                    <h4>Cita individual</h4>
+                    <p class="text-center text-justify">Agrega una cita para la fecha indicada con hora de inicio y término que desees.</p>
+
+                    <div class="indiv-fecha">
+                        <label for="">Fecha:</label>
+                        <input #fechain type="date" min="{{currentDate | date: 'yyyy-MM-dd'}}">
+                    </div>
+                    <div class="indiv-inicio">
+                        <label for="">Hora de inicio:</label>
+                        <input #inicioin type="time">
+                    </div>
+                    <div class="indiv-termino">
+                        <label for="">Hora de término:</label>
+                        <input #terminoin type="time">
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="citaDia(fechain.value, inicioin.value, terminoin.value, costoCita.value)">Agregar
+                        <i class="fa-regular fa-calendar-plus"></i>
+                    </button>
+                </div>
+                <div class="semana-automatico col-sm-6 d-flex">
+                    <h4>Citas por semana</h4>
+                    <p class="text-center text-justify">Agrega citas para la semana actual de manera automática, selecciona la duración que tendrá cada
+                        cita y el tiempo que habrá entre cada una, así como un horario protegido para el cual no se
+                        crearán citas.</p>
+                    <div class="auto-duracion">
+                        <label for="">Duración de cita:</label>
+                        <select #duracion name="" id="">
+                            <option value="20">20 minutos</option>
+                            <option value="30">30 minutos</option>
+                            <option value="40">40 minutos</option>
+                            <option value="50">50 minutos</option>
+                            <option value="60">60 minutos</option>
+                        </select>
+                    </div>
+                    <div class="auto-tiempo-entre">
+                        <label for="">Tiempo entre citas:</label>
+                        <select #intervalo name="" id="">
+                            <option value="0">Inmediato</option>
+                            <option value="10">10 minutos</option>
+                            <option value="20">20 minutos</option>
+                            <option value="30">30 minutos</option>
+                            <option value="40">40 minutos</option>
+                            <option value="50">50 minutos</option>
+                            <option value="60">60 minutos</option>
+                        </select>
+                    </div>
+                    <div class="auto-protegido">
+                        <h6 class="text-center">Horario protegido</h6>
+                        <div class="protegido-input d-flex">
+                            <input #protegido1 type="time" [defaultValue]="0" class="a">
+                            <p class="text-center">hasta</p>
+                            <input #protegido2 type="time" [defaultValue]="0" class="a">
+                        </div>
+
+                    </div>
+                    
+                    <button type="button" class="btn btn-success" 
+                    (click)="citaSemana(duracion.value, intervalo.value, protegido1.value, 
+                    protegido2.value, jornadaInicio.value, jornadaTermino.value, costoCita.value)">Agregar
+                        <i class="fa-regular fa-calendar-plus"></i>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+</div>

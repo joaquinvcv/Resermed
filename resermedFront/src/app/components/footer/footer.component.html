@@ -1,0 +1,42 @@
+<footer class="pie-pagina">
+    <div class="grupo-1" *ngIf="showFooter">
+        <div class="box">
+            <figure><a href="#"><img src="../../assets/resermed__2_.png"  alt="logo"></a></figure>
+        </div> 
+        <div class="box">
+            <h2>Servicios</h2>
+            <a [routerLink]="['/nosotros']"><p>Quiénes somos</p></a>
+            <a (click)="abrirModal()"><p>Contacto</p></a>
+            <a [routerLink]="['/preguntas-frecuentes']"><p>Preguntas Frecuentes</p></a>
+        </div>
+        <div class="box">
+            <h2>Redes Sociales</h2>
+            <div>
+                <a href="https://web.facebook.com/eduardoignacio.contrerasesparza.7/" target="_blank" class="red"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com/edward_face5?igshid=MzNlNGNkZWQ4Mg==" target="_blank" class="red"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCRhnI8aLG-MVOIhWa3aZ2JQ" target="_blank" class="red"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://twitter.com/Cristiano" target="_blank" class="red"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2023, <b>ReserMed</b> - Todos los derechos Reservados</small>
+    </div>
+</footer>
+<div class="modal" [ngStyle]="{'display':footerS.oculto}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button (click)="ocultarModal()" type="button" class="btn-close" data-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <formulario-contacto></formulario-contacto>
+            </div>
+
+            <div class="modal-footer">
+                <button (click)="ocultarModal()" type="button" class="btn btn-danger">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

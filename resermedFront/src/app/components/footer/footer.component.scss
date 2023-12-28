@@ -1,0 +1,120 @@
+@import url('../citas/citas.component.scss');
+
+$font: 'Nunito',sans-serif;
+a{
+    cursor: pointer;
+}
+.pie-pagina{
+    width: 100%;
+    background-color: #002737;
+    position: relative;
+    bottom: 0px;
+}
+
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 35px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure{
+    width: 77%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-pagina .grupo-1 .box figure img{
+    width: 190px;
+}
+
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-family: $font;
+}
+
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+    font-family: $font;
+}
+
+.pie-pagina .grupo-1 .box a{
+    text-decoration: none;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .box p:hover{
+    color: #6dc9b7;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+}
+
+
+
+.red {
+    cursor: default;
+
+    i{
+        
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 12px;
+        color: #fff;
+        text-align: center;
+        transition: all 300ms ease-in-out ;
+        cursor: pointer;
+    }
+
+}
+
+.red i:hover{
+    color: #6dc9b7;
+}
+
+.pie-pagina .grupo-2{
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.pie-pagina .grupo-2 small{
+    font-size: 14px;
+    font-family: $font;
+}
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        padding: 23px 0px;
+    }
+    .pie-pagina .grupo-1 .box figure img{
+        align-items: center;
+    }
+    .pie-pagina .grupo-1 .box figure{
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pie-pagina .grupo-1 .box figure img{
+        width: 190px;
+    }
+}
+.activateFooter{
+    display: none;
+}

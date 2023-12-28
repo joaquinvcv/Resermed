@@ -1,0 +1,58 @@
+<div class="modal" [ngStyle]="{'display':modalService.oculto}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" [ngSwitch]="rol">
+        <div class="modal-content" *ngSwitchCase="'usuario'">
+            <div class="modal-header">
+                <h4 class="modal-title">Detalles Cita</h4>
+                <button (click)="ocultarModal()" type="button" class="btn-close" data-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="card">
+                    <div class="imagen">
+                        <img [src]="medico.img_url" alt="foto proximo">
+                    </div>
+                    <div class="datos">
+                        <h3>{{medico.especialidad}}</h3>
+                        <h3>{{medico.nombre}} {{medico.apellido}}</h3>
+                        <p>Fecha: {{cita.fecha | date: 'dd-MM-yyyy'}}</p>
+                        <p>Hora de Inicio: {{cita.hora_inicio | timeFormat}}</p>
+                        <p>Hora de Termino: {{cita.hora_termino | timeFormat}}</p>
+                        <p>Costo Cita: ${{cita.costo}}</p>
+                        <p *ngIf="cita.observacion != null">Observaciones: {{cita.observacion}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button (click)="ocultarModal()" type="button" class="btn btn-danger">Cerrar</button>
+            </div>
+        </div>
+
+        <div class="modal-content" *ngSwitchCase="'medico'">
+            <div class="modal-header">
+                <h4 class="modal-title">Detalles Cita</h4>
+                <button (click)="ocultarModal()" type="button" class="btn-close" data-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="card">
+                    <div class="imagen">
+                        <img [src]="paciente.img_url" alt="foto proximo">
+                    </div>
+                    <div class="datos">
+                        <h3>{{paciente.nombre}} {{paciente.apellido}}</h3>
+                        <p>Fecha: {{cita.fecha | date: 'dd-MM-yyyy'}}</p>
+                        <p>Hora de Inicio: {{cita.hora_inicio | timeFormat}}</p>
+                        <p>Hora de Termino: {{cita.hora_termino | timeFormat}}</p>
+                        <p>Costo Cita: {{cita.costo}}</p>
+                        <p *ngIf="cita.observacion != null">Observaciones: {{cita.observacion}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button (click)="ocultarModal()" type="button" class="btn btn-danger">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

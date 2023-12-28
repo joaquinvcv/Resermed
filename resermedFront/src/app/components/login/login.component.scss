@@ -1,0 +1,28 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 800px) {
+.h-custom {
+height: 80%;
+}
+
+.fotologin{
+    display: none;
+}
+
+}
+
+.fotologin{
+    width: 700px;
+    height: 700px;
+    margin: 10px;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

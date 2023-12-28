@@ -1,0 +1,23 @@
+@import '../admin/admin.component.scss';
+
+#tableC{
+    width: 80%;
+    margin: 30px;
+    
+}
+
+.btn-primary{
+    background: $colorBarra;
+}
+#newUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 15vh;
+    max-width: 200px;
+    
+}
+.btn{
+    
+    margin-left: 20px;
+}

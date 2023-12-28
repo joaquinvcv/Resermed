@@ -1,0 +1,85 @@
+<section>
+    <div class="container">
+        <h1>Reservar con: </h1>
+        <div class="row">
+            <div class="col-sm" id="datos-reserva">
+                <div class="row">
+                    <div class="col-md">
+                        <!-- <img src="../../../assets/img/img-doctores/p1.png"> -->
+                        <img src={{medico.img_url}}>
+                    </div>
+                    <div class="col-md-9" id="datos-profesional">
+                        <h5>{{medico.nombre}} {{ medico.apellido }}</h5>
+                        <h6>{{medico.especialidad}}</h6>
+                    </div>
+                </div>
+                <div class="datos">
+                    <form>
+                        <div class="form-group">
+                            <label for="motivo-cita">Motivo de consulta:</label>
+                            <textarea #observacion class="form-control" id="motivo-cita" rows="3"></textarea>
+                        </div>
+
+                    </form>
+
+                    <label for="precio"> Costo de consulta:</label>
+                    <p *ngIf="citasDisponibles[0]">$ {{ citasDisponibles[0].costo | currency:'CLP':'' }}</p>
+                    <p *ngIf="!citasDisponibles[0]">$ 0</p>
+                </div>
+            </div>
+            <div class="col-sm cardsContainer" id="disponibilidad">
+                <h5>Horarios disponibles</h5>
+                <label for="fecha-filtro">Filtrar por fecha:</label><input [(ngModel)]="filtroFecha" type="date"
+                    id="fecha-filtro" min="{{currentDate | date: 'yyyy-MM-dd'}}">
+
+                <div class="horas">
+                    <div *ngIf="!filtroFecha; else recientes">
+                        <p>Mostrando: <strong>Citas más próximas</strong></p>
+
+                        <div *ngFor="let d of citasRecientes | citaByMedFilter: medicoId | citaLibre " class="card col-sm-8">
+                            <div class="card-body">
+                                <div class="container-left">
+                                    <h6>Fecha: {{ d.fecha | date: 'dd-MM-yyyy'}}</h6>
+                                    <h6>Hora: {{ d.hora_inicio | timeFormat}} - {{ d.hora_termino | timeFormat}}</h6>
+                                </div>
+                                <div class="container-right">
+                                    <button (click)="reservarCita(d, observacion.value)" type="button" class="btn btn-success btn-reservar">Reservar
+                                        <i class="fa-solid fa-calendar-check"></i>
+                                    </button>
+                                    <button (click)="reservarPagarCita(d, observacion.value)" type="button" class="btn btn-success btn-pagar">Reservar y Pagar
+                                        <i class="fa-solid fa-credit-card"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-template #recientes>
+                        <p>Mostrando para: <strong>{{filtroFecha | date: 'dd-MM-yyyy' }}</strong></p>
+
+                        <div *ngFor="let d of citasDisponibles | dateFilter: filtroFecha | citaByMedFilter: medicoId | citaLibre " class="card col-sm-8">
+                            <div class="card-body">
+                                <div class="container-left">
+                                    <h6>Fecha: {{ d.fecha | date: 'dd-MM-yyyy' }}</h6>
+                                    <h6>Hora: {{ d.hora_inicio | timeFormat}} - {{ d.hora_termino | timeFormat }}</h6>
+                                </div>
+                                <div class="container-right">
+                                    <button (click)="reservarCita(d, observacion.value)" type="button" class="btn btn-success btn-reservar">Reservar
+                                        <i class="fa-solid fa-calendar-check"></i>
+                                    </button>
+                                    <button (click)="reservarPagarCita(d, observacion.value)" type="button" class="btn btn-success btn-pagar">Reservar y Pagar
+                                        <i class="fa-solid fa-credit-card"></i>                                    
+                                    </button>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,179 @@
+.content {
+    flex-direction: column;
+    // border: 1px solid #aaa;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 50px;
+
+    h2{
+        padding: 5px 0 10px 0;
+    }
+}
+
+.jornada {
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+
+    #jornada-inicio {
+        margin: 0 20px 0 10px;
+    }
+
+    #jornada-termino-label {
+        margin: 0 10px 0 20px;
+    }
+
+}
+
+.costo{
+    margin-top: 2vh;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    #costo-cita{
+        margin: 0 20px 0 10px;
+    }
+}
+
+.set-horario h3{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.metodos-cita {
+    justify-content: space-between;
+}
+
+.individual {
+    
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .indiv-fecha {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+            flex: 1;
+        }
+
+        input {
+            flex: 2;
+        }
+    }
+
+    .indiv-inicio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        label {
+            white-space: nowrap;
+            margin-right: 10px;
+            flex: 1;
+        }
+
+        input {
+            flex: 2;
+        }
+    }
+
+    .indiv-termino {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        label {
+            white-space: nowrap;
+            margin-right: 10px;
+            flex: 1;
+        }
+
+        input {
+            flex: 2;
+        }
+    }
+}
+
+.semana-automatico {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .auto-duracion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin: 0 0 18px 0;
+
+        label{
+            white-space: nowrap;
+            margin-right: 10px;
+            flex: 1;
+        }
+
+        select {
+            flex: 2;
+        }
+    }
+
+    .auto-tiempo-entre {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin: 0 0 18px 0;
+
+        label{
+            white-space: nowrap;
+            margin-right: 10px;
+            flex: 1;
+        }
+
+        select {
+            flex: 2;
+        }
+    }
+
+    button {
+        margin-top: 5px;
+    }
+}
+
+.protegido-input {
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+
+    h6 {
+        margin-bottom: 18px;
+    }
+
+    > input, > p {
+        flex: 1;
+        margin: 10px 5px 20px 5px;
+    }
+}
+
+.a{
+    margin: 0 30px 0 10px;
+}

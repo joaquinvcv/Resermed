@@ -1,0 +1,100 @@
+$colorBarra: #002737;
+
+.flex-content{
+    display: flex;
+}
+#barAside{
+    
+    width: 40vh;
+    background-color: $colorBarra;
+}
+#tableContent{
+    display: block;
+    width: 100%;
+    flex-direction: column-reverse;
+    justify-content: start;
+}
+.navbar{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.nav-link{
+    display: flex;
+    margin-left: 20px;
+    height: 70px;
+    align-items: center;
+}
+.nav-link > i{
+    padding: 10px;
+}
+.nav-item:hover{
+    background-color: #6dc9b7;
+    transition: all 0.5s;
+}
+
+.navbar-expand{
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+
+.img-profile{
+    height: 2rem;
+    width: 2rem;
+}
+.wrapper{
+    display: flex;
+}
+
+
+.sidebar{
+    min-height: 90vh;
+}
+.footer-ubb{
+    min-height: 10vh;
+    background-color: $colorBarra;
+    display: flex;
+    align-items: center;
+}
+.footer-ubb > span{
+    display: inline-block;
+    font-size: 14px;
+}
+.sidebar-dark hr.sidebar-divider{
+    border-top: 1px solid #000000 ;
+}
+.sidebar .sidebar-brand{
+    width: 250px;
+
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    z-index: 1;
+}
+.d-flex{
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar-divider{
+    margin: 0 1rem 1rem;
+    box-sizing: border-box;
+    height: 0;
+    overflow: visible;
+}
+
+.activeNav{
+    background-color: #01425c;
+}
+#tituloLogo{
+    color: #000000;
+    font-size: 24px;
+}

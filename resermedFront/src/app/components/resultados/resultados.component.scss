@@ -1,0 +1,304 @@
+$font: 'Nunito', sans-serif;
+
+.wrapper {
+    height: 100%;
+    overflow: auto;
+    background-color: #ebebeb;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.search-content {
+    margin-top: 5vh;
+    font-family: $font;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.searchBar {
+    width: 40rem;
+    background-color: white;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#inputSearch {
+    border: 0;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    padding: 10px 16px;
+    font-family: $font;
+
+}
+
+#inputSearch:focus-visible {
+    box-shadow: none;
+}
+
+
+#btnSearch {
+
+    background-color: #6dc9b7;
+    padding: 20px;
+    border-radius: 40px;
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    cursor: pointer;
+
+}
+
+.searchButton {
+    transition: opacity 0.10s ease-in-out;
+
+}
+
+.resultado {
+    margin-top: 4vh;
+    margin-bottom: 3vh;
+    text-align: center;
+    font-family: $font;
+    font-size: 2rem;
+}
+
+.searchButton:hover {
+    opacity: 0.8;
+}
+
+.cards {
+    margin-top: 1vh;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 1vh;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .img {
+        margin: auto;
+
+        img {
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+            max-width: 60%;
+            height: 60%;
+        }
+    }
+
+    div {
+        margin-top: 4vh;
+
+        h3 {
+            text-align: left;
+            font-family: $font;
+            font-size: 1rem
+        }
+
+        .btn {
+            margin: 0;
+            padding: 0;
+
+            button {
+                margin-top: 1vh;
+                margin-bottom: 3vh;
+                font-family: $font;
+                font-size: 1rem;
+                padding: 7px;
+            }
+        }
+    }
+}
+
+.search-item {
+    width: 800px;
+    margin: 25px 170px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 15px;
+    transition: all 0.25s ease-in-out;
+
+    img {
+        padding-left: 15px;
+        width: 100%;
+        object-fit: contain;
+        height: 150px;
+    }
+}
+
+.search-item:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+}
+
+
+.item-data {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 30px;
+}
+
+.item-nombre {
+    padding-bottom: 15px;
+}
+
+.filters {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-left: 3%;
+    height: fit-content;
+    background-color: #f1f1f1;
+}
+
+
+.seller-info {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .btn-compra {
+        background: linear-gradient(to right, #4caf50 0%, #4caf50 50%, #006426 50%, #006426 100%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        background-size: 200% 100%;
+        transition: background-position 0.3s ease;
+    }
+
+    .btn-compra:hover {
+        background-position: -100% 0;
+    }
+}
+
+.filters {
+    padding: 20px;
+
+    .especialidad-filter {
+        flex-direction: column;
+    }
+
+    .direccion-filter {
+        flex-direction: column;
+    }
+}
+
+.cardsContainer {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        margin-left: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #002737;
+        border-radius: 10px;
+    }
+
+    &-form {
+        @extend .cardsContainer;
+        height: 60vh !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        height: 100%;
+        overflow: auto;
+        background-color: #ebebeb;
+    }
+    
+    
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .searchBar {
+        width: 25rem;
+        background-color: white;
+        border-radius: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .search-item {
+        width: 500px;
+        margin: 0 0;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 15px;
+        transition: all 0.25s ease-in-out;
+    
+        img {
+            padding-left: 10px;
+            width: 100%;
+            object-fit: contain;
+            height: 150px;
+        }
+    }
+
+    .filters {
+        padding: 7px;
+        margin-bottom: 3vh;
+        .especialidad-filter {
+            flex-direction: column;
+        }
+    
+        .direccion-filter {
+            flex-direction: column;
+        }
+    }
+
+    .filters {
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        height: fit-content;
+        background-color: #f1f1f1;
+    }
+
+}

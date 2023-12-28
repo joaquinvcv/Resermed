@@ -1,0 +1,47 @@
+<div class="modal"  tabindex="-1" role="dialog" [ngStyle]="{'display': modalShow.mostrar}">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title">Médicos sin asignar</h5>
+                           
+                    </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <h2>Listado de médicos libres</h2>
+                    <table class="table" *ngIf="medicoService.doctoresLibres && medicoService.doctoresLibres.length">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Rut</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Especialidad</th>
+                                <th scope="col">Acción</th>
+      
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let medico of medicoService.doctoresLibres | paginate: { itemsPerPage: 5, currentPage: p,  totalItems: total}; index as i">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{medico.nombre}}</td>
+                                <td>{{medico.apellido}}</td>
+                                <td>{{medico.rut}}</td>
+                                <td>{{medico.telefono}}</td>
+                                <td>{{medico.email}}</td>
+                                <td>{{medico.especialidad}}</td>
+                                <td><button class="btn btn-success" (click)="addMedico(medico.id,medico,i)">Añadir</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <pagination-controls (pageChange)="p == $event"></pagination-controls>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cerrarModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <div class="search-content">
+        <div action="" class="searchBar">
+            <input type="search" [(ngModel)]="searchTerm" id="inputSearch" class="form-control"
+                placeholder="Buscar profesional" autocomplete="off" />
+            <div class="searchButton">
+                <button type="button" class="" id="btnSearch">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <h1 class="resultado">Resultados</h1>
+
+    <div class="cardsContainer row">
+        <div class="filters col-md-2 col-8">
+            <h3 class="text-center">Filtrar por</h3>
+            <div class="especialidad-filter d-flex">
+                <label for="especialidad">Especialidad</label>
+                <select [(ngModel)]="filtroEspecialidad" name="especialidad" id="especialidad-select">
+                    <option value=""> Seleccione especialidad </option>
+                    <option *ngFor="let item of especialidades" [value]="item">{{item}}</option>
+                </select>
+            </div>
+            <div class="direccion-filter d-flex">
+                <label for="direccion">Dirección</label>
+                <input [(ngModel)]="filtroDireccion" type="text" name="direccion" id="direccion-input" placeholder="Calle o Ciudad">
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="row search-item" *ngFor="let item of medicos | searchFilter: searchTerm | especialidadFilter: filtroEspecialidad | direccionFilter: filtroDireccion">
+                <div class="col-sm-9 product-info row">
+                    <div class="col-sm-3">
+                        <img src={{item.img_url}} alt="img-medico">
+                    </div>
+                    <div class="col-sm-8 item-data">
+                        <h5 class="item-nombre">{{item.nombre}}</h5>
+                        <p class="item-especialidad"><strong> {{item.especialidad}} </strong></p>
+                        <p class="item-direccion"><strong> {{item.direccion}} </strong></p>
+
+                    </div>
+                </div>
+                <div class="col-sm-3 seller-info d-flex">
+
+                    <button type="button" class="btn btn-success btn-compra"
+                        [routerLink]="['/reservar/', item.id]">Reservar
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

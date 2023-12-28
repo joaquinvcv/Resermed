@@ -1,0 +1,72 @@
+<div class="layout">
+  <div>
+    <h2>Médicos asociados</h2>
+    <select class="form-select" [(ngModel)]="medicoService.medicoSelected" aria-label="Multiple select example" (change)="mostrarCitas()">
+      
+      <option  *ngFor="let item of medicoService.medicos; index as i" [ngValue]="item">
+          {{i+1}}. {{item.nombre}} {{item.apellido}}
+      </option>
+    </select>
+
+    <div class="card">
+      <h4 class="card-title">Información de cita</h4>
+      <div class="card-body">
+
+        <div>
+            <h4 class="titleText">Datos del paciente</h4>
+            <hr>
+
+            <div class="dataPaciente">
+              <label for="nombrePaciente">Nombre:</label>
+              <input type="text" id="nombrePaciente" disabled [value]="paciente.nombre">
+              <label for="apellPaciente">Apellido:</label>
+              <input type="text" id="apellPaciente" disabled [value]="paciente.apellido">
+              <label for="nombrePaciente">Rut:</label>
+              <input type="text" id="rutPaciente" disabled [value]="paciente.rut | rutFormat">
+              <label for="emailPaciente">Email:</label>
+              <input type="text" id="emailPaciente" disabled [value]="paciente.email">
+              <label for="fonoPaciente">Teléfono:</label>
+              <input type="text" id="fonoPaciente" disabled [value]="paciente.telefono">
+            </div>
+        </div>
+
+        <div>
+          <h4 class="titleText">Datos de la cita</h4>
+          <hr>
+          
+          <div class="dataCita">
+             <label class="label">Confirmar asistencia del paciente: </label>
+             <label class="switch">
+                <input type="checkbox" [(ngModel)]="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <span><button class="btn btn-success" (click)="guardarAsistencia()">Guardar asistencia</button></span>
+          </div>
+          <div class="dataCita">
+            <label class="label">Estado de pago: </label>
+            <span style="margin-right: 20px;">{{cita.estadoPago}}</span>
+          
+         </div>
+         <div class="dataCita">
+            <label class="label">Costo de la cita: </label>
+            <span>$ {{cita.costo | currency:'CLP':''}}</span>
+            <span style="margin-right: 20px;"><button type="button" (click)="pagarCita()" class="btn btn-success"><i class="fa-solid fa-money-bill" style="color: #ffffff; padding: 5px;"></i>Pagar</button></span>
+         </div>
+         
+          <div>
+              <textarea class="form-control" cols="30" [rows]="7" disabled placeholder="Observaciones" [value]="cita.observaciones"></textarea>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  <div>
+    <datos-citas (pacienteEmitter)="mostrarDatosPaciente($event)" [datos]="citasMedicas"></datos-citas>
+  </div>
+    
+</div>
+
+ 
